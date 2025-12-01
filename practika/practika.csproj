@@ -8,4 +8,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="PhotoCat-image-extender 1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="PhotoCat-image-extender 1.png" />
+  </ItemGroup>
+
 </Project>
