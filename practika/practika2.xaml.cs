@@ -63,5 +63,17 @@ namespace practika
         {
 
         }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Border_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            corzina2 corzina2 = new corzina2();
+            corzina2.Show();
+            this.Close();
+        }
     }
 }

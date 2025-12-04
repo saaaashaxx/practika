@@ -15,13 +15,17 @@
         <Grid Grid.Row="0" Background="White">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
 
-                <Button Content="≡ Каталог" 
+                <Border CornerRadius="15" Background="#554D4D" Height="30" Width="100" Margin="15,0,0,0">
+
+                    <Button Content="≡ Каталог" 
                         Background="Transparent" 
                         BorderThickness="0" 
-                        FontSize="16" 
+                        FontSize="13" 
                         Padding="10,5" 
-                        Foreground="#333333" 
-                        Cursor="Hand"/>
+                        Foreground="White" 
+                        Cursor="Hand" Height="31" Width="91" BorderBrush="White" Click="Button_Click_7"/>
+
+                </Border>
 
                 <Border CornerRadius="15" Background="#F0F0F0" Height="30" Width="200" Margin="15,0,0,0">
 
@@ -51,23 +55,30 @@
             <TextBlock Text="ESPOIR" FontSize="30" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0">
+                <Border Margin="15,0,0,0" CornerRadius="15" Background="#F0F0F0" Height="30" Width="100">
 
-                <Button Content="Профиль" 
+                    <Button Content="Профиль" 
                         Background="Transparent" 
                         BorderThickness="0" 
                         FontSize="16" 
                         Padding="10,5" 
                         Foreground="#333333" 
-                        Cursor="Hand"/>
+                        Cursor="Hand" Height="31" Width="87"/>
+                </Border>
+                <Border
+                    Margin="15,0,0,0" CornerRadius="15" Background="#F0F0F0" Height="30" Width="100" PreviewMouseLeftButtonDown="Border_PreviewMouseLeftButtonDown">
 
-                <Button Content="Корзина" 
+                    <Button Content="Корзина" 
                         Background="Transparent" 
                         BorderThickness="0" 
                         FontSize="16" 
                         Padding="10,5" 
                         Foreground="#333333" 
                         Cursor="Hand"
-                        Margin="15,0,0,0"/>
+                        Height="31" Width="82"/>
+
+
+                </Border>
 
 
             </StackPanel>
@@ -76,7 +87,7 @@
         <Grid Grid.Row="1" Margin="20,0,20,20">
             <Border CornerRadius="40">
                 <Border.Background>
-                    <ImageBrush ImageSource="/PhotoCat-image-extender 1.png"/>
+                    <ImageBrush ImageSource="/PhotoCat-image-extender 1.png" Stretch="UniformToFill"/>
                 </Border.Background>
 
                 <Grid>
@@ -100,19 +111,16 @@
                                    TextWrapping="Wrap"
                                    LineHeight="18"
                                    Margin="0,0,0,40" FontSize="18"/>
-
-                        <Button Content="За покупками >"
-                                HorizontalAlignment="Center"
+                        <Button Content="За покупками &gt;"
                                 Foreground="Black" 
                                 Background="White"
-                                FontSize="24"
+                                FontSize="35"
                                 Padding="30,15"
-                                FontWeight="SemiBold"
-                                Cursor="Hand" BorderThickness="0,0,0,0" Height="61" Width="233" Click="Button_Click_6">
+                                Cursor="Hand" BorderThickness="0,0,0,0" Height="70" Width="300" Click="Button_Click_6">
                             <Button.Template>
-                                <ControlTemplate TargetType="Button">
+                                <ControlTemplate TargetType="{x:Type Button}">
                                     <Border Background="{TemplateBinding Background}" 
-                                            CornerRadius="25" 
+                                            CornerRadius="35" 
                                             BorderThickness="0">
                                         <ContentPresenter HorizontalAlignment="Center" 
                                                           VerticalAlignment="Center"/>

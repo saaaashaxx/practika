@@ -42,5 +42,10 @@ namespace practika
             practika2.Show();
             this.Close();
         }
+
+        private void TextBox_TextChanged_3(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

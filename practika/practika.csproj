@@ -10,10 +10,16 @@
 
   <ItemGroup>
     <None Remove="PhotoCat-image-extender 1.png" />
+    <None Remove="Rectangle 4.png" />
+    <None Remove="Rectangle 5.png" />
+    <None Remove="Rectangle 6.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="PhotoCat-image-extender 1.png" />
+    <Resource Include="Rectangle 4.png" />
+    <Resource Include="Rectangle 5.png" />
+    <Resource Include="Rectangle 6.png" />
   </ItemGroup>
 
 </Project>
