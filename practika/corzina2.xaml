@@ -17,16 +17,7 @@
         <Grid Grid.Row="0" Background="White">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
 
-                <Border CornerRadius="15" Background="#554D4D" Height="30" Width="100" Margin="15,0,0,0">
-                    <Button Content="≡ Каталог"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            FontSize="13"
-                            Padding="10,5"
-                            Foreground="White"
-                            Cursor="Hand" Height="31" Width="91" BorderBrush="White" 
-                            />
-                </Border>
+                
 
                 <Border CornerRadius="15" Background="#F0F0F0" Height="30" Width="200" Margin="15,0,0,0">
                     <Grid>
@@ -57,15 +48,7 @@
             <TextBlock Text="ESPOIR" FontSize="30" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0">
-                <Border Margin="15,0,0,0" CornerRadius="15" Background="#F0F0F0" Height="30" Width="100">
-                    <Button Content="Профиль"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            FontSize="16"
-                            Padding="10,5"
-                            Foreground="#333333"
-                            Cursor="Hand" Height="31" Width="87"/>
-                </Border>
+                
 
                 <Border Margin="15,0,0,0" CornerRadius="15" Background="#F0F0F0" Height="30" Width="100">
                     <Button Content="Корзина"

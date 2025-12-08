@@ -1,0 +1,122 @@
+﻿<Window x:Class="practika.client"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:practika"
+        mc:Ignorable="d"
+        Title="Пользователи ESPOIR" Height="1024" Width="1440"
+        Background="#F5F0F0">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="839*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" BorderBrush="#DCDCDC" BorderThickness="0,0,0,1" Background="White">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" CornerRadius="5" Background="#EBE4E4" Margin="20,15,0,15">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5,0,0,0">
+                        <Button Content="&#xE000;"
+                                x:Name="BackButton"
+                                FontFamily="Segoe MDL2 Assets"
+                                FontSize="16"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Foreground="Black"
+                                VerticalAlignment="Center"
+                                Margin="0,0,5,0"/>
+                        <TextBlock Text="Пользователи"
+                                   FontSize="16" FontWeight="SemiBold"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+
+                <TextBlock Grid.Column="1" Text="ESPOIR"
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                           FontSize="28" FontWeight="Bold" Foreground="Black"/>
+
+                <Border Grid.Column="2" CornerRadius="5" Background="#EBE4E4" Margin="0,15,20,15" HorizontalAlignment="Right">
+                    <Button Content="Выйти"
+                            FontSize="16" FontWeight="SemiBold"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Padding="15,5"/>
+                </Border>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="20,20,20,20">
+
+            <Border CornerRadius="5" Background="#8DC463" Padding="15, 8" Width="126">
+                <Button x:Name="AddButton" Background="Transparent" BorderThickness="0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="+" FontSize="20" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                        <TextBlock Text="Добавить" FontSize="16" FontWeight="SemiBold" Foreground="White" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <Border CornerRadius="5" Background="#B80000" Margin="15, 0, 0, 0" Width="126" Padding="10, 5">
+                <Button Content="Удалить"
+                        FontSize="16" FontWeight="SemiBold"
+                        Foreground="White"
+                        Background="Transparent"
+                        BorderThickness="0"/>
+            </Border>
+
+
+        </StackPanel>
+
+        <DataGrid Grid.Row="2"  
+                  Margin="20,0,20,8"  
+                  AutoGenerateColumns="False"  
+                  CanUserAddRows="False"
+                  HeadersVisibility="Column"
+                  Background="White"
+                  BorderThickness="1" BorderBrush="#DCDCDC"
+                  RowHeaderWidth="0"
+                  x:Name="UsersDataGrid">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID_User" Binding="{Binding ID_User}" Width="*"/>
+                <DataGridTextColumn Header="Login" Binding="{Binding Login}" Width="*"/>
+                <DataGridTextColumn Header="Password" Binding="{Binding Password}" Width="*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Adress" Binding="{Binding Adress}" Width="*"/>
+                <DataGridTextColumn Header="Data_Of_Birth" Binding="{Binding Data_Of_Birth}" Width="*"/>
+                <DataGridTextColumn Header="Role" Binding="{Binding Role}" Width="*"/>
+
+                <DataGridTemplateColumn Width="60">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Background="Transparent"  
+                                    BorderThickness="0"  
+                                    HorizontalAlignment="Center"  
+                                    VerticalAlignment="Center"
+                                    Width="25" Height="25">
+                                <Border CornerRadius="5" Background="#B80000" Padding="5, 0" Margin="-5, 0, -5, 0">
+                                    <TextBlock Text="&#xE10A;"  
+                                               FontFamily="Segoe MDL2 Assets"  
+                                               Foreground="White"  
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

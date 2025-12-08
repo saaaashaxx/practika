@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,66 +15,61 @@ using System.Windows.Shapes;
 namespace practika
 {
     /// <summary>
-    /// Логика взаимодействия для practika2.xaml
+    /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class practika2 : Window
+    public partial class admin : Window
     {
-        public practika2()
+        private zakaz zakaz;
+        private practika2 practika2;
+        private client client;
+
+        public admin()
         {
             InitializeComponent();
         }
 
+        public Product Product { get; private set; }
+        public Suppliers Suppliers { get; private set; }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            zakaz = new zakaz();
+            zakaz.Show();
+            this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            practika2 = new practika2();
+            practika2.Show();
+            this.Close();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            zakaz = new zakaz();
+            zakaz.Show();
+            this.Close();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-
+            client = new client();
+            client.Show();
+            this.Close();
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            
+            Product = new Product();
+            Product.Show();
+            this.Close();
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_6(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_7(object sender, RoutedEventArgs e)
-        {
-            admin adm = new admin();
-            adm.Show();
-            this.Close();
-        }
-
-        private void Border_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            corzina2 corzina2 = new corzina2();
-            corzina2.Show();
+            Suppliers = new Suppliers();
+            Suppliers.Show();
             this.Close();
         }
     }

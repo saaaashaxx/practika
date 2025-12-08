@@ -1,0 +1,80 @@
+﻿<Window x:Class="practika.admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:practika"
+        mc:Ignorable="d"
+        Title="Window1" Height="1024" Width="1440">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" BorderBrush="#DCDCDC" BorderThickness="0,0,0,1" Background="White">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" CornerRadius="5" Background="#EBE4E4" Margin="20,15,0,15">
+                    <TextBlock Text="Админ-панель"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               FontSize="16" FontWeight="SemiBold"
+                               Padding="15,5"/>
+                </Border>
+
+                <TextBlock Grid.Column="1" Text="ESPOIR" 
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                           FontSize="28" FontWeight="Bold" Foreground="Black"/>
+
+                <Border Grid.Column="2" CornerRadius="5" Background="#EBE4E4" Margin="0,15,20,15" HorizontalAlignment="Right">
+                    <Button Content="Выйти" 
+                            FontSize="16" FontWeight="SemiBold"
+                            Background="Transparent" 
+                            BorderThickness="0" 
+                            Padding="15,5"/>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" BorderBrush="#DCDCDC" BorderThickness="0,0,0,1" Background="#F5F0F0">
+            <Button Content="Заказы"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    FontSize="24" Foreground="#444444"
+                    Background="Transparent" 
+                    BorderThickness="0" Click="Button_Click_2"/>
+        </Border>
+
+        <Border Grid.Row="2" BorderBrush="#DCDCDC" BorderThickness="0,0,0,1" Background="#EFEBEB">
+            <Button Content="Клиенты" 
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    FontSize="24" Foreground="#444444"
+                    Background="Transparent" 
+                    BorderThickness="0" Click="Button_Click_3"/>
+        </Border>
+
+        <Border Grid.Row="3" BorderBrush="#DCDCDC" BorderThickness="0,0,0,1" Background="#F5F0F0">
+            <Button Content="Продукты" 
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    FontSize="24" Foreground="#444444"
+                    Background="Transparent" 
+                    BorderThickness="0" Click="Button_Click_4"/>
+        </Border>
+
+        <Border Grid.Row="4" BorderBrush="#DCDCDC" BorderThickness="0,0,0,0" Background="#EFEBEB">
+            <Button Content="Поставщики" 
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    FontSize="24" Foreground="#444444"
+                    Background="Transparent" 
+                    BorderThickness="0" Click="Button_Click_5"/>
+        </Border>
+
+    </Grid>
+</Window>

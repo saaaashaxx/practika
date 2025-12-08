@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 namespace practika
 {
     /// <summary>
-    /// Логика взаимодействия для Window1.xaml
+    /// Логика взаимодействия для Suppliers.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class zakaz : Window
     {
-        public Window1()
+        public zakaz()
         {
             InitializeComponent();
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
