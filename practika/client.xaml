@@ -51,7 +51,7 @@
                             FontSize="16" FontWeight="SemiBold"
                             Background="Transparent"
                             BorderThickness="0"
-                            Padding="15,5"/>
+                            Padding="15,5" Click="Button_Click"/>
                 </Border>
             </Grid>
         </Border>

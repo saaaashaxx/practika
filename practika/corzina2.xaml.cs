@@ -19,9 +19,18 @@ namespace practika
     /// </summary>
     public partial class corzina2 : Window
     {
+        private practika2 practika2;
+
         public corzina2()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            practika2 = new practika2();
+            practika2.Show();
+            this.Close();
         }
     }
 }

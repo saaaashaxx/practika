@@ -49,7 +49,7 @@
                             FontSize="16" FontWeight="SemiBold"
                             Background="Transparent"
                             BorderThickness="0"
-                            Padding="15,5"/>
+                            Padding="15,5" Click="Button_Click"/>
                 </Border>
             </Grid>
         </Border>
@@ -65,13 +65,7 @@
                 </Button>
             </Border>
 
-            <Border CornerRadius="5" Background="#B80000" Margin="15, 0, 0, 0" Width="126" Padding="10, 5">
-                <Button Content="Удалить"
-                        FontSize="16" FontWeight="SemiBold"
-                        Foreground="White"
-                        Background="Transparent"
-                        BorderThickness="0"/>
-            </Border>
+            
 
             
         </StackPanel>
@@ -84,7 +78,7 @@
                   Background="White"
                   BorderThickness="1" BorderBrush="#DCDCDC"
                   RowHeaderWidth="0"
-                  x:Name="SuppliersDataGrid" >
+                  x:Name="SuppliersDataGrid" SelectionChanged="SuppliersDataGrid_SelectionChanged" >
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID_Suppliers" Binding="{Binding ID_Suppliers}" Width="*"/>

@@ -20,9 +20,18 @@ namespace practika
     /// </summary>
     public partial class Product : Window
     {
+        private admin admin;
+
         public Product()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            admin = new admin();
+            admin.Show();
+            this.Close();
         }
     }
 }

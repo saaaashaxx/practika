@@ -17,10 +17,18 @@ namespace practika
     
     public partial class client : Window
     {
+        private admin admin;
+
         public client()
         {
             InitializeComponent();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            admin = new admin();
+            admin.Show();
+            this.Close();
+        }
     }
 }
