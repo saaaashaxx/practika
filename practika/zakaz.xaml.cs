@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel; 
 using System.Windows;
 using System.Windows.Controls;
 
@@ -21,16 +22,17 @@ namespace practika
     {
         private Window admin;
 
+        private ObservableCollection<Order> ordersList;
+
         public zakaz()
         {
             InitializeComponent();
-
             LoadOrdersData();
         }
 
         private void LoadOrdersData()
         {
-            List<Order> orders = new List<Order>
+            ordersList = new ObservableCollection<Order>
             {
                 new Order
                 {
@@ -78,7 +80,7 @@ namespace practika
                 }
             };
 
-            ProductsDataGrid.ItemsSource = orders;
+            ProductsDataGrid.ItemsSource = ordersList;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -87,9 +89,29 @@ namespace practika
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-             admin = new admin();
-             admin.Show();
-             this.Close();
+            admin = new admin();
+            admin.Show();
+            this.Close();
+        }
+
+        private void DeleteButton(object sender, RoutedEventArgs e)
+        {
+            Button deleteButton = sender as Button;
+            Order orderToDelete = deleteButton.DataContext as Order;
+
+            if (orderToDelete != null)
+            {
+                MessageBoxResult result = MessageBox.Show(
+                    $"Вы уверены, что хотите удалить заказ №{orderToDelete.ID_Orders}?",
+                    "Подтверждение удаления",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    ordersList.Remove(orderToDelete);
+                }
+            }
         }
     }
 }

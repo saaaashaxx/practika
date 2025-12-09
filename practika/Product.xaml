@@ -71,7 +71,8 @@
                         FontSize="16" FontWeight="SemiBold"
                         Foreground="White"
                         Background="Transparent"
-                        BorderThickness="0"/>
+                        BorderThickness="0" Click="DeleteButton"/>
+                
             </Border>
 
             
@@ -97,8 +98,17 @@
                 <DataGridTextColumn Header="ID_Suppliers" Binding="{Binding ID_Suppliers}" Width="*"/>
                 <DataGridTextColumn Header="ID_Categories" Binding="{Binding ID_Categories}" Width="*"/>
                 <DataGridTextColumn Header="ID_Brands" Binding="{Binding ID_Brands}" Width="*"/>
-                <DataGridTextColumn Header="img" Binding="{Binding img}" Width="*"/>
-
+                <DataGridTemplateColumn Header="Изображение" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding img}" 
+                   Stretch="Uniform" 
+                   Width="80" 
+                   Height="80" 
+                   Margin="5"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTemplateColumn Width="60" x:Name="DeleteRowTemplateColumn">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

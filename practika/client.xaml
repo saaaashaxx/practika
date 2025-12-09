@@ -67,13 +67,7 @@
                 </Button>
             </Border>
 
-            <Border CornerRadius="5" Background="#B80000" Margin="15, 0, 0, 0" Width="126" Padding="10, 5">
-                <Button Content="Удалить"
-                        FontSize="16" FontWeight="SemiBold"
-                        Foreground="White"
-                        Background="Transparent"
-                        BorderThickness="0"/>
-            </Border>
+            
 
 
         </StackPanel>

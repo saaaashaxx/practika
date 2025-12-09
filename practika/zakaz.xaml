@@ -66,13 +66,7 @@
                 </Button>
             </Border>
 
-            <Border CornerRadius="5" Background="#B80000" Margin="15, 0, 0, 0" Width="126" Padding="10, 5">
-                <Button Content="Удалить"
-                        FontSize="16" FontWeight="SemiBold"
-                        Foreground="White"
-                        Background="Transparent"
-                        BorderThickness="0"/>
-            </Border>
+            
 
            
         </StackPanel>
@@ -105,7 +99,7 @@
                                     BorderThickness="0"  
                                     HorizontalAlignment="Center"  
                                     VerticalAlignment="Center"
-                                    Width="25" Height="25">
+                                    Width="25" Height="25" Click="DeleteButton">
                                 <Border CornerRadius="5" Background="#B80000" Padding="5, 0" Margin="-5, 0, -5, 0">
                                     <TextBlock Text="&#xE10A;"  
                                                FontFamily="Segoe MDL2 Assets"  

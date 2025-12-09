@@ -2,13 +2,17 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="img\bb.png" />
+    <None Remove="img\cream.png" />
+    <None Remove="img\flora.png" />
+    <None Remove="img\inni.png" />
     <None Remove="PhotoCat-image-extender 1.png" />
     <None Remove="Rectangle 4.png" />
     <None Remove="Rectangle 5.png" />
@@ -16,6 +20,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="9.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\bb.png" />
+    <Resource Include="img\cream.png" />
+    <Resource Include="img\flora.png" />
+    <Resource Include="img\inni.png" />
     <Resource Include="PhotoCat-image-extender 1.png" />
     <Resource Include="Rectangle 4.png" />
     <Resource Include="Rectangle 5.png" />
