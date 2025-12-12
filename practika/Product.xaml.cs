@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Collections.ObjectModel; // Добавляем для ObservableCollection
+using System.Linq; // ДОБАВЛЕНО: Необходимо для использования метода Max()
 
 namespace practika
 {
@@ -97,6 +98,35 @@ namespace practika
             admin.Show();
             this.Close();
         }
+
+        // --- ДОБАВЛЕННЫЙ МЕТОД: ЛОГИКА КНОПКИ "ДОБАВИТЬ" ---
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Определяем новый ID, основываясь на максимальном существующем ID
+            int newId = productsList.Count > 0 ? productsList.Max(p => p.ID_Products) + 1 : 1;
+
+            // Создаем новый объект продукта с данными по умолчанию
+            ProductModel newProduct = new ProductModel
+            {
+                ID_Products = newId,
+                Name = "Новый продукт",
+                Volume = "0ml",
+                Price = 0.00m,
+                QuantityInStock = 0,
+                ID_Suppliers = 1,
+                ID_Categories = 1,
+                ID_Brands = 1,
+                img = "" // Пустая строка или путь к изображению по умолчанию
+            };
+
+            // Добавляем новый продукт в ObservableCollection. DataGrid обновляется автоматически.
+            productsList.Add(newProduct);
+
+            // Выделяем новую строку для удобства редактирования
+            ProductsDataGrid.SelectedItem = newProduct;
+            ProductsDataGrid.ScrollIntoView(newProduct);
+        }
+        // --------------------------------------------------------
 
         private void DeleteButton(object sender, RoutedEventArgs e)
         {

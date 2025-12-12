@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel; 
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Linq; // ДОБАВЛЕНО: Необходимо для использования метода Max()
 
 namespace practika
 {
@@ -80,6 +81,7 @@ namespace practika
                 }
             };
 
+            // В XAML вы назвали DataGrid как ProductsDataGrid, используем это имя
             ProductsDataGrid.ItemsSource = ordersList;
         }
 
@@ -93,6 +95,34 @@ namespace practika
             admin.Show();
             this.Close();
         }
+
+        // --- ДОБАВЛЕННЫЙ МЕТОД: ЛОГИКА КНОПКИ "ДОБАВИТЬ" ---
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Определяем новый ID, основываясь на максимальном существующем ID
+            int newId = ordersList.Count > 0 ? ordersList.Max(o => o.ID_Orders) + 1 : 1;
+
+            // Создаем новый объект заказа с данными по умолчанию
+            Order newOrder = new Order
+            {
+                ID_Orders = newId,
+                Status = 1, // По умолчанию: Новый заказ
+                TypeofOrder = 1,
+                TotalAmount = 0m,
+                DateOfOrder = DateTime.Now.ToString("yyyy-MM-dd"),
+                PaymentMethod = 1,
+                ID_User = 1, // Предполагаемый ID пользователя по умолчанию
+                ID_Products = 1 // Предполагаемый ID продукта по умолчанию
+            };
+
+            // Добавляем новый заказ в ObservableCollection. DataGrid обновляется автоматически.
+            ordersList.Add(newOrder);
+
+            // Выделяем новую строку для удобства редактирования
+            ProductsDataGrid.SelectedItem = newOrder;
+            ProductsDataGrid.ScrollIntoView(newOrder);
+        }
+        // --------------------------------------------------------
 
         private void DeleteButton(object sender, RoutedEventArgs e)
         {

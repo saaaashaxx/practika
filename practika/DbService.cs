@@ -175,25 +175,24 @@ namespace Example
         //    }
         //}
 
-        // Метод для удаления пользователя по ID
-        //public static bool DeleteUser(int userId)
-        //{
-        //    try
-        //    {
-        //        string query = "DELETE FROM users WHERE id = @id";
-        //        var parameters = new Dictionary<string, object>
-        //        {
-        //            ["@id"] = userId
-        //        };
+        public static bool DeleteUser(int ID_User)
+        {
+            try
+            {
+                string query = "DELETE FROM user WHERE ID_User = @id";
+                var parameters = new Dictionary<string, object>
+                {
+                    ["@id"] = ID_User
+                };
 
-        //        ExecuteNonQueryWithParameters(query, parameters);
-        //        return true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Ошибка удаления пользователя: {ex.Message}");
-        //        return false;
-        //    }
-        //}
+                ExecuteNonQueryWithParameters(query, parameters);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка удаления пользователя: {ex.Message}");
+                return false;
+            }
+        }
     }
 }

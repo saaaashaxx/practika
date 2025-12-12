@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Collections.ObjectModel; // Добавляем для ObservableCollection
+using System.Linq;
+using Example; // ДОБАВЛЕНО: Необходимо для использования метода Max()
 
 namespace practika
 {
@@ -21,6 +24,9 @@ namespace practika
     {
         private Window admin;
 
+        // КЛЮЧЕВОЕ ИЗМЕНЕНИЕ 1: Список пользователей делаем полем класса и используем ObservableCollection
+        private ObservableCollection<User> usersList;
+
         public client()
         {
             InitializeComponent();
@@ -29,7 +35,8 @@ namespace practika
 
         private void LoadUsersData()
         {
-            List<User> users = new List<User>
+            // Инициализируем ObservableCollection
+            usersList = new ObservableCollection<User>
             {
                 new User
                 {
@@ -99,16 +106,71 @@ namespace practika
                 }
             };
 
-            UsersDataGrid.ItemsSource = users;
+            // Привязываем ObservableCollection к DataGrid
+            UsersDataGrid.ItemsSource = usersList;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-             admin = new admin();
-             admin.Show();
-             this.Close();
+            admin = new admin();
+            admin.Show();
+            this.Close();
         }
 
-      
+        // --- ДОБАВЛЕННЫЙ МЕТОД: ЛОГИКА КНОПКИ "ДОБАВИТЬ" ---
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Определяем новый ID, основываясь на максимальном существующем ID
+            int newId = usersList.Count > 0 ? usersList.Max(u => u.ID_User) + 1 : 1;
+
+            // Создаем новый объект пользователя с данными по умолчанию
+            User newUser = new User
+            {
+                ID_User = newId,
+                Login = "новый_логин",
+                Password = "123",
+                Email = "email@example.com",
+                Name = "Новый пользователь",
+                Adress = "Адрес по умолчанию",
+                Data_Of_Birth = DateTime.Now.ToString("yyyy-MM-dd"),
+                Role = 1 // Роль по умолчанию (например, клиент)
+            };
+
+            // Добавляем нового пользователя в ObservableCollection. DataGrid обновляется автоматически.
+            usersList.Add(newUser);
+
+            // Выделяем новую строку для удобства редактирования
+            UsersDataGrid.SelectedItem = newUser;
+            UsersDataGrid.ScrollIntoView(newUser);
+        }
+        // --------------------------------------------------------
+
+        // РЕАЛИЗАЦИЯ ЛОГИКИ УДАЛЕНИЯ
+        private void DeleteButton(object sender, RoutedEventArgs e)
+        {
+            // 1. Получаем объект Button, который был нажат
+            Button deleteButton = sender as Button;
+
+            // 2. Получаем объект User (пользователь), связанный с этой строкой DataGrid
+            User userToDelete = deleteButton.DataContext as User;
+
+            if (userToDelete != null)
+            {
+                // Диалоговое окно для подтверждения
+                MessageBoxResult result = MessageBox.Show(
+                    $"Вы уверены, что хотите удалить пользователя: {userToDelete.Name} (ID: {userToDelete.ID_User})?",
+                    "Подтверждение удаления",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    // 3. Удаляем объект из ObservableCollection.
+                    // DataGrid автоматически обновится.
+                    DbService.DeleteUser(userToDelete.ID_User);
+                    usersList.Remove(userToDelete);
+                }
+            }
+        }
     }
 }

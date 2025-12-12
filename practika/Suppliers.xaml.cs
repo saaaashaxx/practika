@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Collections.ObjectModel;
+using System.Linq; // ДОБАВЛЕНО: Необходимо для использования метода Max()
 
 namespace practika
 {
@@ -82,7 +83,7 @@ namespace practika
         {
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             Supplier newSupplier = new Supplier
             {
